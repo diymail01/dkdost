@@ -10,17 +10,19 @@
     };
 
     sops-nix.url = "github:Mic92/sops-nix";
+
+    antigravity-nix = {
+      url = "github:jacopone/antigravity-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, sops-nix }:
+  outputs = { self, nixpkgs, home-manager, sops-nix, antigravity-nix }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs { inherit system; };
   in
   {
-    # =========================
-    # NixOS Configuration
-    # =========================
     nixosConfigurations.user0 = nixpkgs.lib.nixosSystem {
       inherit system;
 
@@ -41,12 +43,15 @@
           home-manager.users.ironman = import ./home/ironman.nix;
           home-manager.users.omniman = import ./home/omniman.nix;
         }
+
+        {
+          environment.systemPackages = [
+            antigravity-nix.packages.${system}.default
+          ];
+        }
       ];
     };
 
-    # =========================
-    # Dev Shells
-    # =========================
     devShells.${system}.default = pkgs.mkShell {
       buildInputs = with pkgs; [
         git
