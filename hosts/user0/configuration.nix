@@ -46,6 +46,7 @@
   services.displayManager.gdm.wayland = true;
 
   services.desktopManager.gnome.enable = true;
+    programs.hyprland.enable = true;
 
   services.xserver.xkb = {
     layout = "us";
