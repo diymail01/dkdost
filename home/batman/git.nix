@@ -1,8 +1,8 @@
 {
   programs.git = {
     enable = true;
-    userName = "diymail01";
-    userEmail = "diymail01@gmail.com";
+    settings.user.name = "diymail01";
+    settings.user.email = "diymail01@gmail.com";
   };
 
   programs.ssh = {

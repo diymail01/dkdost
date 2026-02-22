@@ -11,5 +11,6 @@
     btop
     ripgrep
     fd
+    gnomeExtensions.user-themes
   ];
 }

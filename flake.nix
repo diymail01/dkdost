@@ -11,13 +11,15 @@
 
     sops-nix.url = "github:Mic92/sops-nix";
 
+    stylix.url = "github:danth/stylix/release-25.11";
+
     antigravity-nix = {
       url = "github:jacopone/antigravity-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, sops-nix, antigravity-nix }:
+  outputs = { self, nixpkgs, home-manager, sops-nix, stylix, antigravity-nix }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs { inherit system; };
@@ -32,12 +34,19 @@
         # Secrets layer
         sops-nix.nixosModules.sops
 
+        # Theming
+        stylix.nixosModules.stylix
+
         # Home Manager
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "bak";
+          
+          home-manager.sharedModules = [
+            stylix.homeModules.stylix
+          ];
 
           home-manager.users.batman = import ./home/batman;
           home-manager.users.ironman = import ./home/ironman.nix;

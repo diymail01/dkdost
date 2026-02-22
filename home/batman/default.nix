@@ -5,6 +5,7 @@
     ./packages.nix
     ./zsh.nix
     ./git.nix
+    ./theme.nix
   ];
 
   programs.home-manager.enable = true;
