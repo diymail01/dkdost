@@ -9,8 +9,10 @@
     ./kitty.nix
     ./hyprland.nix
     ./hyprland-binds.nix
+    ./hyprlock.nix
     ./waybar.nix
     ./rofi.nix
+    ./aliases.nix
   ];
 
   programs.home-manager.enable = true;

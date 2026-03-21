@@ -25,16 +25,23 @@
     wl-clipboard          # clipboard
     pavucontrol           # audio control GUI
     networkmanagerapplet  # network tray
+    brightnessctl         # backlight control
+    blueman               # bluetooth tray
+    hyprpicker            # color picker
 
-    # --- Theming / wallpaper switcher ---
-    pywal16               # generate colors from wallpaper
-    imagemagick           # image manipulation for thumbnails
-    papirus-icon-theme    # icons for rofi
+    # --- Fonts & Theming ---
+    nerd-fonts.jetbrains-mono  # icons for waybar
+    papirus-icon-theme         # icons for rofi
   ];
 
-  # Install wall-switch script to ~/.local/bin
+  # Install scripts to ~/.local/bin
   home.file.".local/bin/wall-switch" = {
     source = ./scripts/wall-switch.sh;
+    executable = true;
+  };
+
+  home.file.".local/bin/theme-switch" = {
+    source = ./scripts/theme-switch.sh;
     executable = true;
   };
 }

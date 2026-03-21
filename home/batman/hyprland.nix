@@ -17,6 +17,7 @@
         "waybar"
         "dunst"
         "swww-daemon"
+        "nm-applet --indicator"
       ];
 
       # -------------------------------------------------

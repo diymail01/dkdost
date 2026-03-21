@@ -7,7 +7,7 @@
     bind = [
       # App launchers
       "$mod, Return, exec, kitty"
-      "$mod, D, exec, rofi -show drun"
+      "$mod, D, exec, rofi -show drun -theme-str 'window {width: 45em; border-radius: 12px;} listview {columns: 2; lines: 8; spacing: 8px;} element {padding: 8px; border-radius: 8px;}'"
       "$mod, Q, killactive,"
       "$mod, F, fullscreen,"
       "$mod, V, togglefloating,"
@@ -45,8 +45,9 @@
       # Screenshot
       ", Print, exec, grimblast copy area"
 
-      # Wallpaper switcher
+      # Theme / Wallpaper switchers
       "$mod, T, exec, ~/.local/bin/wall-switch"
+      "$mod SHIFT, T, exec, ~/.local/bin/theme-switch"
 
       # Lock
       "$mod SHIFT, L, exec, hyprlock"

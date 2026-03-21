@@ -1,11 +1,14 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   stylix = {
     enable = true;
 
+    # Prevent Stylix from locking the wallpaper daemon so our swww script can work
+    targets.hyprpaper.enable = lib.mkForce false;
+
     # --- Color scheme ---
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
 
     # --- Wallpaper ---
     image = ../../assets/wallpapers/bruce.jpg;
