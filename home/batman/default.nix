@@ -19,6 +19,8 @@
     ./waybar.nix
     ./rofi.nix
     ./swaync.nix
+    ./hypridle.nix
+    ./gtk.nix
 
     # --- Terminal ---
     ./kitty.nix

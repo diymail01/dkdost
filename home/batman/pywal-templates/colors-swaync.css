@@ -1,0 +1,60 @@
+.control-center {{
+  background: alpha({background}, 0.92);
+  border-radius: 12px;
+  border: 1px solid alpha({foreground}, 0.08);
+  padding: 12px;
+}}
+
+.notification-row {{
+  outline: none;
+}}
+
+.notification {{
+  border-radius: 10px;
+  margin: 4px 0;
+  padding: 0;
+  background: alpha({background}, 0.6);
+  border: 1px solid alpha({foreground}, 0.06);
+}}
+
+.notification-content {{
+  padding: 8px;
+}}
+
+.close-button {{
+  border-radius: 6px;
+  background: alpha({color1}, 0.2);
+  color: {color1};
+  margin: 4px;
+  padding: 2px 6px;
+}}
+
+.widget-title {{
+  font-size: 16px;
+  font-weight: bold;
+  margin: 4px 0;
+  color: {foreground};
+}}
+
+.widget-title button {{
+  border-radius: 8px;
+  background: alpha({color4}, 0.15);
+  color: {color4};
+  padding: 4px 10px;
+}}
+
+.widget-dnd {{
+  margin: 4px 0;
+  padding: 4px 8px;
+  border-radius: 8px;
+  background: alpha({foreground}, 0.04);
+  color: {foreground};
+}}
+
+.widget-dnd > switch {{
+  border-radius: 8px;
+}}
+
+.widget-dnd > switch:checked {{
+  background: {color4};
+}}

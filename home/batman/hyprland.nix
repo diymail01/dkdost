@@ -17,6 +17,8 @@
         "swaync"
         "swww-daemon"
         "wl-paste --watch cliphist store"
+        "wl-clip-persist --clipboard regular"
+        "hypridle"
       ];
 
       # -------------------------------------------------
@@ -89,6 +91,17 @@
         "float, class:^(nm-connection-editor)$"
         "float, class:^(blueman-manager)$"
         "float, title:^(Picture-in-Picture)$"
+      ];
+
+      # Rofi and swaync render as layer surfaces, not windows
+      # They need layerrules for transparency/blur to work
+      layerrule = [
+        "blur, rofi"
+        "ignorezero, rofi"
+        "blur, swaync-control-center"
+        "blur, swaync-notification-window"
+        "ignorezero, swaync-control-center"
+        "ignorezero, swaync-notification-window"
       ];
     };
   };

@@ -29,6 +29,8 @@
     hyprpicker             # color picker
     networkmanager_dmenu   # rofi wifi menu
     pywal16                # dynamic color generation from wallpaper
+    hypridle               # auto-lock & suspend after idle
+    wl-clip-persist        # keep clipboard alive after source app closes
 
     # --- Fonts & Theming ---
     nerd-fonts.jetbrains-mono  # icons for waybar

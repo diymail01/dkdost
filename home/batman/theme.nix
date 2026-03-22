@@ -8,6 +8,7 @@
     targets.hyprpaper.enable = lib.mkForce false;
     targets.waybar.enable = false;
     targets.rofi.enable = false;
+    targets.gtk.enable = false;
 
     # --- Color scheme (base fallback, pywal overrides at runtime) ---
     base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";

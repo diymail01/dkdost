@@ -36,6 +36,14 @@
     source = ./pywal-templates/colors-waybar.css;
   };
 
+  home.file.".config/wal/templates/colors-gtk.css" = {
+    source = ./pywal-templates/colors-gtk.css;
+  };
+
+  home.file.".config/wal/templates/colors-swaync.css" = {
+    source = ./pywal-templates/colors-swaync.css;
+  };
+
   # --- networkmanager_dmenu config ---
   home.file.".config/networkmanager-dmenu/config.ini".text = ''
 [dmenu]
