@@ -3,6 +3,8 @@
 {
   programs.waybar = {
     enable = true;
+    systemd.enable = true;
+    systemd.target = "hyprland-session.target";
 
     settings = {
       mainBar = {
@@ -16,7 +18,7 @@
 
         modules-left = [ "hyprland/workspaces" "hyprland/window" ];
         modules-center = [ "clock" ];
-        modules-right = [ "tray" "pulseaudio" "backlight" "network" "bluetooth" "battery" ];
+        modules-right = [ "tray" "pulseaudio" "backlight" "network" "bluetooth" "battery" "custom/power" ];
 
         "hyprland/workspaces" = {
           format = "{icon}";
@@ -53,7 +55,7 @@
           format = "{icon}  {capacity}%";
           format-charging = "  {capacity}%";
           format-plugged = "  {capacity}%";
-          format-icons = [ "" "" "" "" "" ];
+          format-icons = [ " " " " " " " " " " ];
           states = {
             warning = 30;
             critical = 15;
@@ -67,36 +69,42 @@
           format-disconnected = "  Off";
           tooltip-format-wifi = "{essid} ({signalStrength}%)\n{ipaddr}/{cidr}";
           tooltip-format-ethernet = "{ifname}\n{ipaddr}/{cidr}";
-          on-click = "nm-connection-editor";
+          on-click = "networkmanager_dmenu";
         };
 
         bluetooth = {
-          format = "";
+          format = " ";
           format-connected = "  {device_alias}";
-          format-disabled = "";
+          format-disabled = "  Off";
           tooltip-format = "{controller_alias}\n{num_connections} connected";
           tooltip-format-connected = "{controller_alias}\n{device_enumerate}";
           tooltip-format-enumerate-connected = "{device_alias}\t{device_battery_percentage}%";
-          on-click = "blueman-manager";
+          on-click = "~/.local/bin/bluetooth-menu";
         };
 
         backlight = {
           format = "{icon}  {percent}%";
-          format-icons = [ "" "" ];
+          format-icons = [ "󰃞" "󰃟" "󰃠" ];
           on-scroll-up = "brightnessctl set +5%";
           on-scroll-down = "brightnessctl set 5%-";
         };
 
         pulseaudio = {
           format = "{icon}  {volume}%";
-          format-muted = "  Muted";
+          format-muted = "󰖁  Muted";
           format-icons = {
             default = [ "" "" "" ];
             headphone = "";
           };
-          on-click = "pavucontrol";
+          on-click = "~/.local/bin/volume-menu";
           on-scroll-up = "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+";
           on-scroll-down = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+        };
+
+        "custom/power" = {
+          format = "⏻";
+          tooltip = false;
+          on-click = "~/.local/bin/power-menu";
         };
 
         tray = {
@@ -165,7 +173,7 @@
       }
 
       /* --- Right modules (pill-grouped) --- */
-      #pulseaudio, #backlight, #network, #bluetooth, #battery, #tray {
+      #pulseaudio, #backlight, #network, #bluetooth, #battery, #custom-power, #tray {
         margin: 4px 2px;
         padding: 4px 10px;
         border-radius: 8px;
@@ -174,8 +182,13 @@
         transition: all 0.2s ease;
       }
 
-      #pulseaudio:hover, #backlight:hover, #network:hover, #bluetooth:hover, #battery:hover {
+      #pulseaudio:hover, #backlight:hover, #network:hover, #bluetooth:hover, #battery:hover, #custom-power:hover {
         background: alpha(@theme_fg_color, 0.12);
+      }
+
+      #custom-power {
+        margin-right: 6px;
+        color: alpha(@theme_fg_color, 0.7);
       }
 
       #battery.warning {
@@ -188,7 +201,7 @@
       }
 
       #tray {
-        margin-right: 6px;
+        margin-left: 2px;
       }
 
       @keyframes blink {

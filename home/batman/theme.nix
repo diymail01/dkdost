@@ -8,7 +8,7 @@
     targets.hyprpaper.enable = lib.mkForce false;
 
     # --- Color scheme ---
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
 
     # --- Wallpaper ---
     image = ../../assets/wallpapers/bruce.jpg;

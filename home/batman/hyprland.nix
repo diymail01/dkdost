@@ -14,10 +14,8 @@
       # Startup
       # -------------------------------------------------
       exec-once = [
-        "waybar"
         "dunst"
         "swww-daemon"
-        "nm-applet --indicator"
       ];
 
       # -------------------------------------------------
@@ -83,34 +81,14 @@
       };
 
       # -------------------------------------------------
-      # Key bindings
-      # -------------------------------------------------
-      # Moved to hyprland-binds.nix for modularity
-
-
-      # -------------------------------------------------
       # Window rules
       # -------------------------------------------------
       windowrulev2 = [
         "float, class:^(pavucontrol)$"
         "float, class:^(nm-connection-editor)$"
+        "float, class:^(blueman-manager)$"
         "float, title:^(Picture-in-Picture)$"
       ];
-    };
-  };
-
-  # Notification daemon
-  services.dunst = {
-    enable = true;
-    settings = {
-      global = {
-        width = 300;
-        height = 100;
-        offset = "20x20";
-        origin = "top-right";
-        frame_width = 2;
-        corner_radius = 8;
-      };
     };
   };
 }

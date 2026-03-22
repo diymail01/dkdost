@@ -3,7 +3,7 @@
 {
   programs.hyprlock = {
     enable = true;
-    
+
     settings = {
       general = {
         disable_loading_bar = true;
@@ -11,27 +11,37 @@
         no_fade_in = false;
       };
 
-      # Background and colors will be automatically injected by Stylix!
-
+      # Stylix auto-injects: background, input-field colors, and fonts.
+      # We only need to position the labels so they don't overlap.
 
       label = [
-        # Clock
+        # Time — top area
         {
           monitor = "";
           text = "$TIME";
-          font_size = 120;
+          font_size = 95;
           font_family = "JetBrains Mono";
-          position = "0, 80";
+          position = "0, 200";
           halign = "center";
           valign = "center";
         }
-        # Greeting
+        # Date
         {
           monitor = "";
-          text = "Hi there, $USER";
-          font_size = 25;
+          text = ''cmd[update:60000] date +"%A, %d %B"'';
+          font_size = 18;
           font_family = "JetBrains Mono";
-          position = "0, 0";
+          position = "0, 110";
+          halign = "center";
+          valign = "center";
+        }
+        # Greeting — just above center
+        {
+          monitor = "";
+          text = "Hi, $USER";
+          font_size = 14;
+          font_family = "JetBrains Mono";
+          position = "0, -75";
           halign = "center";
           valign = "center";
         }

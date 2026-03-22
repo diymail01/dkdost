@@ -2,17 +2,26 @@
 
 {
   imports = [
+    # --- Core ---
     ./packages.nix
-    ./zsh.nix
+    ./aliases.nix
+    ./scripts.nix
     ./git.nix
+
+    # --- Shell ---
+    ./zsh.nix
+
+    # --- Desktop ---
     ./theme.nix
-    ./kitty.nix
     ./hyprland.nix
     ./hyprland-binds.nix
     ./hyprlock.nix
     ./waybar.nix
     ./rofi.nix
-    ./aliases.nix
+    ./dunst.nix
+
+    # --- Terminal ---
+    ./kitty.nix
   ];
 
   programs.home-manager.enable = true;
