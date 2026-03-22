@@ -14,8 +14,9 @@
       # Startup
       # -------------------------------------------------
       exec-once = [
-        "dunst"
+        "swaync"
         "swww-daemon"
+        "wl-paste --watch cliphist store"
       ];
 
       # -------------------------------------------------

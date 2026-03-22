@@ -10,8 +10,8 @@
     executable = true;
   };
 
-  home.file.".local/bin/theme-switch" = {
-    source = ./scripts/theme-switch.sh;
+  home.file.".local/bin/wall-picker" = {
+    source = ./scripts/wall-picker.sh;
     executable = true;
   };
 
@@ -30,14 +30,22 @@
     executable = true;
   };
 
+  # --- Pywal Waybar template ---
+  # Pywal reads this template and generates colors-waybar.css in ~/.cache/wal/
+  home.file.".config/wal/templates/colors-waybar.css" = {
+    source = ./pywal-templates/colors-waybar.css;
+  };
+
   # --- networkmanager_dmenu config ---
   home.file.".config/networkmanager-dmenu/config.ini".text = ''
-    [dmenu]
-    dmenu_command = rofi -dmenu -i -p "Wi-Fi" -theme-str 'window {width: 30em; border-radius: 12px;} listview {lines: 10; spacing: 4px;} element {padding: 10px 14px; border-radius: 8px;}'
-    wifi_rescan = true
+[dmenu]
+dmenu_command = rofi -dmenu -i -p "Wi-Fi"
 
-    [editor]
-    terminal = kitty
-    gui_if_available = True
+[editor]
+terminal = kitty
+gui_if_available = True
+
+[nmdm]
+rescan_delay = 5
   '';
 }

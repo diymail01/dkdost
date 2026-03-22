@@ -17,6 +17,18 @@
   networking.hostName = "user0";
   networking.networkmanager.enable = true;
   networking.firewall.enable = true;
+  # -------------------------------------------------
+  # Bluetooth
+  # -------------------------------------------------
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
+
+  # -------------------------------------------------
+  # USB Tethering (Android + iOS)
+  # -------------------------------------------------
+  services.usbmuxd.enable = true;
+
 
   # -------------------------------------------------
   # Time & Locale
@@ -82,6 +94,7 @@
     zsh
     fish
     git
+    libimobiledevice
   ];
 
   # -------------------------------------------------
@@ -100,7 +113,8 @@
       isNormalUser = true;
       description = "Bruce Wayne";
       shell = pkgs.zsh;
-      extraGroups = [ "wheel" "networkmanager" ];
+      extraGroups = [ "wheel" "networkmanager" "video" ];
+
     };
 
     ironman = {

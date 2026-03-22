@@ -18,7 +18,7 @@
     ./hyprlock.nix
     ./waybar.nix
     ./rofi.nix
-    ./dunst.nix
+    ./swaync.nix
 
     # --- Terminal ---
     ./kitty.nix

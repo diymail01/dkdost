@@ -7,7 +7,7 @@
     bind = [
       # App launchers
       "$mod, Return, exec, kitty"
-      "$mod, D, exec, rofi -show drun -theme-str 'window {width: 45em; border-radius: 12px;} listview {columns: 2; lines: 8; spacing: 8px;} element {padding: 8px; border-radius: 8px;}'"
+      "$mod, D, exec, rofi -show drun"
       "$mod, Q, killactive,"
       "$mod, F, fullscreen,"
       "$mod, V, togglefloating,"
@@ -45,14 +45,17 @@
       # Screenshot
       ", Print, exec, grimblast copy area"
 
-      # Wallpaper switcher
-      "$mod, T, exec, ~/.local/bin/wall-switch"
-
-      # Theme switcher
-      "$mod SHIFT, T, exec, ~/.local/bin/theme-switch"
+      # Wallpaper picker (visual gallery + pywal colors)
+      "$mod, T, exec, ~/.local/bin/wall-picker"
 
       # Power menu
       "$mod, X, exec, ~/.local/bin/power-menu"
+
+      # Clipboard history
+      "$mod, C, exec, cliphist list | rofi -dmenu -p 'Clipboard' | cliphist decode | wl-copy"
+
+      # Notification center
+      "$mod, N, exec, swaync-client -t -sw"
 
       # Lock screen
       "$mod SHIFT, L, exec, hyprlock"

@@ -4,11 +4,13 @@
   stylix = {
     enable = true;
 
-    # Prevent Stylix from locking the wallpaper daemon so our swww script can work
+    # Prevent Stylix from managing things we control dynamically via pywal
     targets.hyprpaper.enable = lib.mkForce false;
+    targets.waybar.enable = false;
+    targets.rofi.enable = false;
 
-    # --- Color scheme ---
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
+    # --- Color scheme (base fallback, pywal overrides at runtime) ---
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
 
     # --- Wallpaper ---
     image = ../../assets/wallpapers/bruce.jpg;
@@ -20,8 +22,8 @@
         name = "JetBrains Mono";
       };
       sansSerif = {
-        package = pkgs.noto-fonts;
-        name = "Noto Sans";
+        package = pkgs.adwaita-fonts;
+        name = "Adwaita Sans";
       };
       serif = {
         package = pkgs.noto-fonts;
@@ -42,7 +44,7 @@
     # --- Cursor ---
     cursor = {
       package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Classic";
+      name = "Bibata-Modern-Ice";
       size = 24;
     };
 

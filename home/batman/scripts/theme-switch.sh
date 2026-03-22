@@ -55,7 +55,9 @@ kitty --title "Theme Rebuild" -e bash -c "
   sudo nixos-rebuild switch --flake $HOME/nixos-config#user0
   echo ''
   if [ \$? -eq 0 ]; then
-    echo '>>> Theme applied successfully!'
+    echo '>>> Theme applied successfully! Restarting Waybar...'
+    pkill waybar
+    systemctl --user restart waybar
   else
     echo '>>> Build failed. Check errors above.'
   fi
