@@ -13,7 +13,7 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
 
     # --- Wallpaper ---
-    image = ../../assets/wallpapers/bruce.jpg;
+    image = ../../assets/wallpapers/wallhaven-6l5emq.png;
 
     # --- Fonts ---
     fonts = {

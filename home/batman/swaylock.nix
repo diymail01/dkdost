@@ -1,8 +1,9 @@
 { pkgs, lib, ... }:
 
 {
-  # Disable Stylix's hyprlock target to avoid conflicts
+  # Disable Stylix's targets to avoid conflicts
   stylix.targets.hyprlock.enable = lib.mkForce false;
+  stylix.targets.swaylock.enable = lib.mkForce false;
 
   # Disable hyprlock entirely
   programs.hyprlock.enable = lib.mkForce false;

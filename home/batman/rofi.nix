@@ -15,93 +15,105 @@
       drun-display-format = "{name}";
       terminal = "kitty";
     };
-
-    # Modern fullscreen-lite theme with glassmorphism
-    theme = let
-      inherit (builtins) toString;
-    in builtins.toFile "rofi-theme.rasi" ''
-      * {
-        font: "JetBrainsMono Nerd Font 12";
-      }
-
-      configuration {
-        show-icons: true;
-      }
-
-      window {
-        width: 50em;
-        border-radius: 16px;
-        padding: 20px;
-        transparency: "real";
-        background-color: transparent;
-        border: 0px;
-        border-color: transparent;
-      }
-
-      mainbox {
-        spacing: 16px;
-        children: [ inputbar, listview ];
-      }
-
-      inputbar {
-        padding: 12px 16px;
-        border-radius: 12px;
-        background-color: #ffffff0a;
-        text-color: #e0e0e0;
-        children: [ prompt, textbox-prompt-colon, entry ];
-        spacing: 8px;
-      }
-
-      prompt {
-        text-color: #7aa2f7;
-        font: "JetBrainsMono Nerd Font Bold 12";
-      }
-
-      textbox-prompt-colon {
-        str: "";
-        text-color: #7aa2f7;
-        expand: false;
-      }
-
-      entry {
-        text-color: #e0e0e0;
-        placeholder: "Type to search...";
-        placeholder-color: #666680;
-      }
-
-      listview {
-        columns: 2;
-        lines: 8;
-        spacing: 6px;
-        fixed-columns: true;
-        scrollbar: false;
-        background-color: transparent;
-      }
-
-      element {
-        padding: 10px 14px;
-        border-radius: 10px;
-        background-color: transparent;
-        text-color: #c0c0d0;
-        spacing: 10px;
-      }
-
-      element selected {
-        background-color: #7aa2f720;
-        text-color: #e0e0e0;
-        border: 1px;
-        border-color: #7aa2f760;
-        border-radius: 10px;
-      }
-
-      element-icon {
-        size: 28px;
-        border-radius: 6px;
-      }
-
-      element-text {
-        vertical-align: 0.5;
-      }
-    '';
   };
+
+  # Write rofi theme to config dir so it can @import pywal colors at runtime
+  xdg.configFile."rofi/theme.rasi".text = ''
+    /* Import pywal-generated accent colors (updated on every wallpaper switch) */
+    @import "~/.cache/wal/colors-rofi-dark.rasi"
+
+    * {
+      font: "JetBrainsMono Nerd Font 12";
+    }
+
+    configuration {
+      show-icons: true;
+    }
+
+    window {
+      width: 50em;
+      border-radius: 16px;
+      padding: 20px;
+      transparency: "real";
+      background-color: @background;
+      border: 2px;
+      border-color: @lightbg;
+    }
+
+    mainbox {
+      spacing: 16px;
+      background-color: @background;
+      children: [ inputbar, listview ];
+    }
+
+    inputbar {
+      padding: 12px 16px;
+      border-radius: 12px;
+      background-color: @lightbg;
+      text-color: @foreground;
+      children: [ prompt, textbox-prompt-colon, entry ];
+      spacing: 8px;
+    }
+
+    prompt {
+      text-color: @active-foreground;
+      background-color: transparent;
+      font: "JetBrainsMono Nerd Font Bold 12";
+    }
+
+    textbox-prompt-colon {
+      str: "";
+      text-color: @active-foreground;
+      background-color: transparent;
+      expand: false;
+    }
+
+    entry {
+      text-color: @foreground;
+      background-color: transparent;
+      placeholder: "Type to search...";
+      placeholder-color: @lightfg;
+    }
+
+    listview {
+      columns: 2;
+      lines: 8;
+      spacing: 6px;
+      fixed-columns: true;
+      scrollbar: false;
+      background-color: transparent;
+    }
+
+    element {
+      padding: 10px 14px;
+      border-radius: 10px;
+      background-color: transparent;
+      text-color: @foreground;
+      spacing: 10px;
+    }
+
+    element selected {
+      background-color: @active-background;
+      text-color: @foreground;
+      border: 1px;
+      border-color: @active-foreground;
+      border-radius: 10px;
+    }
+
+    element-icon {
+      size: 28px;
+      border-radius: 6px;
+      background-color: transparent;
+    }
+
+    element-text {
+      vertical-align: 0.5;
+      background-color: transparent;
+    }
+  '';
+
+  # Point rofi to our theme file
+  xdg.configFile."rofi/config.rasi".text = ''
+    @theme "~/.config/rofi/theme.rasi"
+  '';
 }

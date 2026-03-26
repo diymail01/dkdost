@@ -9,7 +9,7 @@ chosen=$(echo -e "$options" | rofi -dmenu -i -p "Power" \
   -theme-str 'window {width: 14em; border-radius: 12px; padding: 12px;} listview {lines: 5; spacing: 4px;} element {padding: 10px 14px; border-radius: 8px;}')
 
 case "$chosen" in
-  *Lock)     swaylock ;;
+  *Lock)     hyprlock ;;
   *Logout)   hyprctl dispatch exit ;;
   *Reboot)   systemctl reboot ;;
   *Shutdown) systemctl poweroff ;;

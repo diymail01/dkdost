@@ -58,7 +58,7 @@
       "$mod, N, exec, swaync-client -t -sw"
 
       # Lock screen
-      "$mod SHIFT, L, exec, swaylock"
+      "$mod SHIFT, L, exec, hyprlock"
     ];
 
     # Mouse binds
