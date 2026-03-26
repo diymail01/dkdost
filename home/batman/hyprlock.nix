@@ -19,7 +19,7 @@
       background = lib.mkForce [
         {
           monitor = "";
-          path = "$HOME/.cache/current_wallpaper";
+          path = "/home/batman/.cache/current_wallpaper";
           blur_passes = 2;
           blur_size = 4;
           noise = 0.0117;
@@ -87,9 +87,9 @@
         # User Icon
         {
           monitor = "";
-          text = "";
+          text = "<span font_desc='JetBrainsMono Nerd Font 60'>   </span>";
           color = "rgba(255, 255, 255, 0.65)";
-          font_size = 100;
+          font_size = 60;
           font_family = "JetBrainsMono Nerd Font";
           position = "0, -180";
           halign = "center";
