@@ -40,7 +40,7 @@
         # Home Manager
         home-manager.nixosModules.home-manager
         {
-          home-manager.useGlobalPkgs = true;
+          home-manager.useGlobalPkgs = false;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "bak";
           
