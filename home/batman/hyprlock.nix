@@ -9,114 +9,91 @@
 
     settings = {
       general = {
-        disable_loading_bar = true;
+        disable_loading_bar = false;
         hide_cursor = true;
         no_fade_in = false;
         grace = 0;
       };
 
-      # Blurred wallpaper background
+      # Background — actual wallpaper image with light blur
       background = lib.mkForce [
         {
           monitor = "";
-          path = "screenshot";
-          blur_passes = 5;
-          blur_size = 8;
-          noise = 0.01;
-          contrast = 0.75;
-          brightness = 0.55;
-          vibrancy = 0.20;
+          path = "$HOME/.cache/current_wallpaper";
+          blur_passes = 2;
+          blur_size = 4;
+          noise = 0.0117;
+          contrast = 0.8916;
+          brightness = 0.8172;
+          vibrancy = 0.1696;
         }
       ];
 
-      # Password input field — centered on screen
+      # Password input field — positioned at the bottom
       input-field = lib.mkForce [
         {
           monitor = "";
-          size = "300, 55";
-          outline_thickness = 3;
-          dots_size = 0.3;
+          size = "250, 60";
+          outline_thickness = 2;
+          dots_size = 0.2;
           dots_spacing = 0.2;
           dots_center = true;
-          dots_rounding = -1;
-          outer_color = "rgba(122, 162, 247, 0.35)";
-          inner_color = "rgba(0, 0, 0, 0.45)";
-          font_color = "rgba(255, 255, 255, 0.95)";
-          fade_on_empty = true;
-          fade_timeout = 2000;
-          placeholder_text = "<span foreground='##aaaacc'>  Enter Password</span>";
+          outer_color = "rgba(0, 0, 0, 0)";
+          inner_color = "rgba(100, 114, 125, 0.5)";
+          font_color = "rgb(200, 200, 200)";
+          fade_on_empty = false;
+          font_family = "JetBrains Mono";
+          placeholder_text = "<i><span foreground=\"##ffffff99\">Hi, $USER</span></i>";
           hide_input = false;
-          rounding = 22;
-          check_color = "rgba(122, 162, 247, 0.7)";
-          fail_color = "rgba(255, 85, 85, 0.8)";
-          fail_text = "<span foreground='##ff5555'><i> $FAIL ($ATTEMPTS)</i></span>";
-          fail_transition = 300;
-          capslock_color = "rgba(255, 200, 50, 0.7)";
-          position = "0, -40";
+          position = "0, -290";
           halign = "center";
           valign = "center";
-          shadow_passes = 3;
-          shadow_size = 6;
-          shadow_color = "rgba(0, 0, 0, 0.4)";
         }
       ];
 
       label = lib.mkForce [
-        # Time — large, top area
+        # Hour-Time (Gold)
         {
           monitor = "";
-          text = ''cmd[update:1000] echo "$(date +"%H:%M")"'';
-          color = "rgba(255, 255, 255, 0.95)";
-          font_size = 120;
+          text = ''cmd[update:1000] echo -e "$(date +"%H")"'';
+          color = "rgba(255, 185, 0, 0.6)";
+          font_size = 180;
           font_family = "JetBrains Mono ExtraBold";
-          position = "0, 280";
+          position = "0, 300";
           halign = "center";
           valign = "center";
-          shadow_passes = 3;
-          shadow_size = 10;
-          shadow_color = "rgba(0, 0, 0, 0.7)";
         }
-        # Date — below time
+        # Minute-Time (White)
         {
           monitor = "";
-          text = ''cmd[update:60000] date +"%A, %B %d"'';
+          text = ''cmd[update:1000] echo -e "$(date +"%M")"'';
+          color = "rgba(255, 255, 255, 0.6)";
+          font_size = 180;
+          font_family = "JetBrains Mono ExtraBold";
+          position = "0, 75";
+          halign = "center";
+          valign = "center";
+        }
+        # Day-Date-Month formatting (White + Gold)
+        {
+          monitor = "";
+          text = ''cmd[update:1000] echo "<span color='##ffffff99'>$(date '+%A, ')</span><span color='##ffb90099'>$(date '+%d %B')</span>"'';
+          font_size = 30;
+          font_family = "JetBrains Mono Bold";
+          position = "0, -80";
+          halign = "center";
+          valign = "center";
+        }
+        # User Icon
+        {
+          monitor = "";
+          text = "";
           color = "rgba(255, 255, 255, 0.65)";
-          font_size = 20;
-          font_family = "JetBrains Mono";
-          position = "0, 180";
-          halign = "center";
-          valign = "center";
-          shadow_passes = 2;
-          shadow_size = 5;
-          shadow_color = "rgba(0, 0, 0, 0.5)";
-        }
-        # Greeting — above input field
-        {
-          monitor = "";
-          text = "Welcome back, $USER";
-          color = "rgba(255, 255, 255, 0.80)";
-          font_size = 14;
-          font_family = "JetBrains Mono";
-          position = "0, 20";
-          halign = "center";
-          valign = "center";
-          shadow_passes = 2;
-          shadow_size = 4;
-          shadow_color = "rgba(0, 0, 0, 0.4)";
-        }
-        # Lock icon — above greeting
-        {
-          monitor = "";
-          text = "";
-          color = "rgba(122, 162, 247, 0.85)";
-          font_size = 32;
+          font_size = 100;
           font_family = "JetBrainsMono Nerd Font";
-          position = "0, 65";
+          position = "0, -180";
           halign = "center";
           valign = "center";
-          shadow_passes = 2;
-          shadow_size = 4;
-          shadow_color = "rgba(0, 0, 0, 0.3)";
         }
       ];
     };

@@ -61,7 +61,10 @@ swww img "$FULL_PATH" \
   --transition-duration 1.5 \
   --transition-fps 60
 
-# 2. Generate colors from the wallpaper using pywal
+# 2. Update current wallpaper symlink for hyprlock
+ln -sf "$FULL_PATH" "$HOME/.cache/current_wallpaper"
+
+# 3. Generate colors from the wallpaper using pywal
 wal -i "$FULL_PATH" -n -q -e
 
 # 3. Reload Waybar with new colors

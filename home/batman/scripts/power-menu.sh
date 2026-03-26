@@ -6,7 +6,7 @@
 options="  Lock\n  Logout\n  Reboot\n  Shutdown\n  Suspend"
 
 chosen=$(echo -e "$options" | rofi -dmenu -i -p "Power" \
-  -theme-str 'window {width: 14em; border-radius: 12px; padding: 12px;} listview {lines: 5; spacing: 4px;} element {padding: 10px 14px; border-radius: 8px;}')
+  -theme-str 'window {width: 20em; border-radius: 12px; padding: 12px;} listview {lines: 5; spacing: 4px;} element {padding: 10px 14px; border-radius: 8px;} element-text {horizontal-align: 0.5;}')
 
 case "$chosen" in
   *Lock)     hyprlock ;;
