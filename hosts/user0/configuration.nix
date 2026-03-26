@@ -64,6 +64,9 @@
     layout = "us";
     variant = "";
   };
+  services.libinput.enable = true;
+  services.xserver.libinput.enable = true;
+  hardware.uinput.enable = true;
 
   # -------------------------------------------------
   # Printing

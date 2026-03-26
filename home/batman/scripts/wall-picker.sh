@@ -62,6 +62,7 @@ swww img "$FULL_PATH" \
   --transition-fps 60
 
 # 2. Update current wallpaper symlink for hyprlock
+mkdir -p "$HOME/.cache"
 ln -sf "$FULL_PATH" "$HOME/.cache/current_wallpaper"
 
 # 3. Generate colors from the wallpaper using pywal

@@ -84,16 +84,22 @@
           halign = "center";
           valign = "center";
         }
-        # User Icon
+      ];
+
+      image = lib.mkForce [
+        # User Profile Graphic
         {
           monitor = "";
-          text = "<span font_desc='JetBrainsMono Nerd Font 60'>   </span>";
-          color = "rgba(255, 255, 255, 0.65)";
-          font_size = 60;
-          font_family = "JetBrainsMono Nerd Font";
+          path = "/home/batman/nixos-config/assets/wallpapers/wallhaven-6l5emq.png";
+          size = 110;
+          rounding = -1;
+          border_size = 3;
+          border_color = "rgba(255, 255, 255, 0.5)";
           position = "0, -180";
           halign = "center";
           valign = "center";
+          shadow_passes = 2;
+          shadow_size = 4;
         }
       ];
     };

@@ -38,8 +38,22 @@ mkdir -p ~/.config/sops/age
 # Place your keys.txt here:
 # nano ~/.config/sops/age/keys.txt
 ```
+**After placing your key:**
+Ensure your secrets file (`secrets/secrets.yaml`) is properly encrypted and tracked by git. If you need to edit or create new secrets:
+```bash
+nix-shell -p sops --run "sops secrets/secrets.yaml"
+```
 
-### 4. Hardware Configuration
+### 4. Dev Shells (Per-Project Environments)
+This repository includes isolated development environments (`dev-shells/flake.nix`). Instead of installing tools globally, use dev shells for specific projects.
+To enter a shell, run:
+```bash
+nix develop ~/nixos-config/dev-shells#node     # For Node.js / NPM / Yarn
+nix develop ~/nixos-config/dev-shells#python   # For Python 3 & Pip
+nix develop ~/nixos-config/dev-shells#rust     # For Rust / Cargo
+```
+
+### 5. Hardware Configuration
 Generate the hardware config for your specific machine and replace the placeholder one:
 ```bash
 sudo nixos-generate-config --show-hardware-config > hosts/user0/hardware-configuration.nix
