@@ -95,3 +95,11 @@ After rebooting into Hyprland, you need to initialize the dynamic theming and wa
 | `SUPER + Q` | Kill active window |
 | `SUPER + V` | Toggle floating window |
 | `SUPER + F` | Toggle fullscreen |
+
+
+## Todo 
+
+- [ ] Mouse
+- [ ] warnings
+- [ ] wifi 
+- [ ] icons
