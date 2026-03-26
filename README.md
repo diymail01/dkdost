@@ -99,7 +99,7 @@ After rebooting into Hyprland, you need to initialize the dynamic theming and wa
 
 ## Todo 
 
-- [ ] Mouse
-- [ ] warnings
+- [ ] add lots of wallpapers
+- [ ] notification manager
 - [ ] wifi 
 - [ ] icons
