@@ -33,9 +33,9 @@
         border-radius: 16px;
         padding: 20px;
         transparency: "real";
-        background-color: #1a1a2eaa;
-        border: 2px;
-        border-color: #ffffff20;
+        background-color: transparent;
+        border: 0px;
+        border-color: transparent;
       }
 
       mainbox {

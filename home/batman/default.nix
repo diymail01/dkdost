@@ -15,7 +15,7 @@
     ./theme.nix
     ./hyprland.nix
     ./hyprland-binds.nix
-    ./hyprlock.nix
+    ./swaylock.nix
     ./waybar.nix
     ./rofi.nix
     ./swaync.nix

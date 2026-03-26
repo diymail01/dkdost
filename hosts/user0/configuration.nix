@@ -74,6 +74,7 @@
   # Audio (PipeWire)
   # -------------------------------------------------
   services.pulseaudio.enable = false;
+  security.pam.services.swaylock = {};
   security.rtkit.enable = true;
 
   services.pipewire = {

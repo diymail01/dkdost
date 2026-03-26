@@ -39,14 +39,20 @@ done
 chosen=$(printf "$input" | rofi -dmenu -i -p "Wallpaper" \
   -show-icons \
   -theme-str '
-    window { width: 60em; border-radius: 14px; padding: 16px; }
-    mainbox { spacing: 12px; }
-    inputbar { padding: 10px 14px; border-radius: 10px; }
-    listview { columns: 3; lines: 2; spacing: 10px; fixed-columns: true; }
-    element { padding: 10px; border-radius: 12px; orientation: vertical; }
-    element-icon { size: 14em; border-radius: 10px; }
-    element-text { horizontal-align: 0.5; padding: 6px 0 0 0; }
-    element selected { border: 2px solid; }
+    * { background-color: transparent; text-color: #ffffffdd; }
+    window { width: 60em; border-radius: 14px; padding: 16px; background-color: transparent; border: 0px; }
+    mainbox { spacing: 12px; background-color: transparent; }
+    inputbar { padding: 10px 14px; border-radius: 10px; background-color: #00000055; }
+    prompt { background-color: transparent; text-color: #7aa2f7; }
+    entry { background-color: transparent; text-color: #ffffffdd; placeholder-color: #ffffff66; }
+    textbox-prompt-colon { background-color: transparent; }
+    listview { columns: 3; lines: 2; spacing: 10px; fixed-columns: true; background-color: transparent; }
+    element { padding: 10px; border-radius: 12px; orientation: vertical; background-color: transparent; }
+    element-icon { size: 14em; border-radius: 10px; background-color: transparent; }
+    element-text { horizontal-align: 0.5; padding: 6px 0 0 0; background-color: transparent; }
+    element selected { border: 2px solid; border-color: #7aa2f7aa; background-color: #7aa2f720; }
+    element-icon selected { background-color: transparent; }
+    element-text selected { background-color: transparent; }
   ')
 
 [ -z "$chosen" ] && exit 0
